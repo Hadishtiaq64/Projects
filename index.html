@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI PC Part Picker Pro</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self';">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🚀 AI PC Part Picker Pro</h1>
+      <p>Get expert PC build recommendations powered by advanced AI - completely free, no API keys required</p>
+    </div>
+
+    <div class="rate-limit-info">
+      <h3 class ="status heading">🎯 Free Service Status</h3>
+      <p>Professional PC build recommendations at no cost</p>
+      <div class="usage-stats">
+        <div class="stat">
+          <div class="stat-number" id="buildsGenerated">0</div>
+          <div class="stat-label">Builds Generated</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Daily Limit</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">0ms</div>
+          <div class="stat-label">Avg Response</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="input-section">
+        <h2 class="section-title">
+          <span>🎯</span> Configure Your Dream PC
+        </h2>
+
+        <div class="form-group">
+          <label for="budget">💰 Budget Range:</label>
+          <select id="budget">
+            <option value="">Select Budget Range</option>
+            <option value="Under $500">Under $500 (Budget Build)</option>
+            <option value="$500-$1000">$500-$1000 (Mid-range)</option>
+            <option value="$1000-$2000">$1000-$2000 (High-end)</option>
+            <option value="$2000-$3000">$2000-$3000 (Enthusiast)</option>
+            <option value="Over $3000">Over $3000 (No Limits)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="useCase">🎮 Primary Use Case:</label>
+          <select id="useCase">
+            <option value="">Select Primary Use</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Content Creation">Content Creation</option>
+            <option value="Office Work">Office Work</option>
+            <option value="Programming">Programming/Development</option>
+            <option value="Streaming">Streaming</option>
+            <option value="AI/ML">AI/Machine Learning</option>
+            <option value="General Purpose">General Purpose</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="customPrompt">✍️ Describe your specific needs:</label>
+          <textarea id="customPrompt" placeholder="Example: I want a gaming PC that can run the latest games at 1440p..."></textarea>
+        </div>
+
+        <div class="quick-prompts">
+          <div class="quick-prompt" data-prompt="Budget gaming build for 1080p 60fps">🎮 Budget Gaming</div>
+          <div class="quick-prompt" data-prompt="High-end gaming build for 4K ultra settings">🚀 4K Gaming Beast</div>
+          <div class="quick-prompt" data-prompt="Content creator workstation for video editing">🎥 Creator Station</div>
+          <div class="quick-prompt" data-prompt="Compact mini-ITX build with good performance">📦 Mini Powerhouse</div>
+        </div>
+
+        <button class="generate-btn" id="generateBtn">✨ Generate AI Recommendation</button>
+
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+          AI is crafting your perfect PC build...
+        </div>
+      </div>
+
+      <div class="output-section">
+        <h2 class="section-title">
+          <span>🔧</span> Your Custom PC Build
+        </h2>
+        <div id="response" class="response">
+          🎯 Your personalized PC build recommendation will appear here once you submit your requirements...
+        </div>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🤖</div>
+        <h3>AI-Powered Recommendations</h3>
+        <p>Advanced machine learning analyzes thousands of components to find your perfect match</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💰</div>
+        <h3>Budget Optimization</h3>
+        <p>Get the best performance for your budget with smart component balancing</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <h3>Performance Focused</h3>
+        <p>Builds optimized for your specific use case and performance requirements</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔄</div>
+        <h3>Always Updated</h3>
+        <p>Recommendations based on the latest components and current market prices</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
