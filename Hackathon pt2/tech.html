@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedRad Website</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/c95c9f47d3.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="/" id="navbar__logo"
+          ><i class="fa-solid fa-briefcase-medical"></i>MedRad</a
+        >
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="/" class="navbar__links"> Home </a>
+          </li>
+          <li class="navbar__item">
+            <a href="/tech.html" class="navbar__links"> Tech </a>
+          </li>
+          <li class="navbar__item">
+            <a href="/" class="navbar__links"> Products </a>
+          </li>
+          <li class="navbar__btn">
+            <a href="/" class="button"> Sign Up </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="main">
+      <div class="main__container">
+        <div class="main__content">
+          <h1>Use MedRad Below!</h1>
+          <button class="main__btn">
+            <a href="#tracker">Let's Go!</a>
+          </button>
+        </div>
+        <div class="main__img--container">
+          <img src="images/pic4.svg" alt="pic" id="main__img" />
+        </div>
+      </div>
+    </div>
+
+    <div class="tracker-section" id="tracker">
+      <div class="tracker-container">
+        <h1 style="text-align: center; margin-bottom: 30px">
+          MedRad - Smart Medication Management
+        </h1>
+
+        <div class="warning-banner">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <strong>Important:</strong> Don't Use this to Self-Diagnose. Always
+          Speak with a Medical Professional for proper diagnosis and treatment.
+        </div>
+
+        <div class="tab-container">
+          <div class="tab-buttons">
+            <button class="tab-btn active" onclick="showTab('symptoms')">
+              Symptom Checker
+            </button>
+            <button class="tab-btn" onclick="showTab('medication')">
+              Medication Tracker
+            </button>
+            <button class="tab-btn" onclick="showTab('schedule')">
+              My Schedule
+            </button>
+          </div>
+
+          <div id="symptoms-tab" class="tab-content">
+            <div class="tracker-form">
+              <h2>
+                <i class="fa-solid fa-stethoscope"></i> Describe Your Symptoms
+              </h2>
+              <div class="form-group">
+                <label for="symptoms"
+                  >What symptoms are you experiencing?</label
+                >
+                <textarea
+                  id="symptoms"
+                  rows="4"
+                  placeholder="Describe your symptoms in detail (e.g., headache, nausea, fever, duration, severity...)"
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="severity">Severity Level</label>
+                <select id="severity">
+                  <option value="mild">Mild</option>
+                  <option value="moderate">Moderate</option>
+                  <option value="severe">Severe</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="duration"
+                  >How long have you had these symptoms?</label
+                >
+                <select id="duration">
+                  <option value="hours">Less than 24 hours</option>
+                  <option value="days">1-7 days</option>
+                  <option value="weeks">1-4 weeks</option>
+                  <option value="months">More than a month</option>
+                </select>
+              </div>
+
+              <button class="btn-primary" onclick="analyzeSymptoms()">
+                <i class="fa-solid fa-magnifying-glass"></i> Analyze Symptoms
+              </button>
+            </div>
+
+            <div class="loading" id="loading">
+              <div class="spinner"></div>
+              <p>Analyzing your symptoms...</p>
+            </div>
+
+            <div class="results-section hidden" id="results">
+              <h3>
+                <i class="fa-solid fa-clipboard-list"></i> Analysis Results
+              </h3>
+              <div id="analysis-content"></div>
+
+              <div class="medication-list" id="otc-medications">
+                <h3>
+                  <i class="fa-solid fa-pills"></i> Suggested Over-the-Counter
+                  Medications
+                </h3>
+                <div id="otc-list"></div>
+              </div>
+
+              <div class="procedure-list" id="procedures">
+                <h3>
+                  <i class="fa-solid fa-list-check"></i> Recommended
+                  Procedures/Actions
+                </h3>
+                <div id="procedure-list"></div>
+              </div>
+
+              <div class="hospital-finder hidden" id="hospital-section">
+                <h3>
+                  <i class="fa-solid fa-hospital"></i> Your symptoms may require
+                  immediate medical attention
+                </h3>
+                <p>Would you like to find nearby hospitals?</p>
+                <button
+                  class="btn-primary"
+                  onclick="findNearbyHospitals()"
+                  style="background: white; color: #ff6b6b"
+                >
+                  <i class="fa-solid fa-location-dot"></i> Find Nearby Hospitals
+                </button>
+                <div id="hospital-list"></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="medication-tab" class="tab-content hidden">
+            <div class="medication-tracker">
+              <h2><i class="fa-solid fa-pills"></i> Add New Medication</h2>
+              <div class="form-group">
+                <label for="med-name">Medication Name</label>
+                <input
+                  type="text"
+                  id="med-name"
+                  placeholder="e.g., Aspirin, Ibuprofen"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="med-dosage">Dosage</label>
+                <input
+                  type="text"
+                  id="med-dosage"
+                  placeholder="e.g., 200mg, 1 tablet"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="med-frequency">Frequency</label>
+                <select id="med-frequency">
+                  <option value="once">Once daily</option>
+                  <option value="twice">Twice daily</option>
+                  <option value="thrice">Three times daily</option>
+                  <option value="four">Four times daily</option>
+                  <option value="as-needed">As needed</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="med-time">First dose time</label>
+                <input type="time" id="med-time" value="08:00" />
+              </div>
+
+              <button class="btn-primary" onclick="addMedication()">
+                <i class="fa-solid fa-plus"></i> Add Medication
+              </button>
+            </div>
+          </div>
+
+          <div id="schedule-tab" class="tab-content hidden">
+            <div class="medication-tracker">
+              <h2>
+                <i class="fa-solid fa-calendar-days"></i> My Medication Schedule
+              </h2>
+              <div class="med-schedule" id="med-schedule">
+                <div class="med-card">
+                  <h4>No medications added yet</h4>
+                  <p>
+                    Add medications in the Medication Tracker tab to see your
+                    schedule here.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="services">
+      <h1>What it Does</h1>
+      <div class="services__container">
+        <div class="services__card">
+          <h2>Smart Symptom Analysis</h2>
+          <p>AI-powered symptom checking with suggestions</p>
+          <button onclick="document.getElementById('tracker').scrollIntoView()">
+            Go Up
+          </button>
+        </div>
+        <div class="services__card">
+          <h2>Medication Management</h2>
+          <p>Track your medications, set reminders and interactions</p>
+          <button
+            onclick="showTab('medication'); document.getElementById('tracker').scrollIntoView()"
+          >
+            Go Up
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__container">
+      <div class="footer__links">
+        <div class="footer__links--wrapper">
+          <div class="footer__link--items">
+            <h2>About Us</h2>
+            <a href="/">How It Works</a>
+            <a href="/">Testimonials</a>
+            <a href="/">Social Media</a>
+            <a href="/">Contacts</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="apps.js"></script>
+  </body>
+</html>

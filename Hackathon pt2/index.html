@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedRad Website</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/c95c9f47d3.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- navbar is the "navigation of the code for menu buttons" -->
+    <nav class="navbar">
+      <div class="navbar__container">
+        <!-- LOGO which also works as a home button -->
+        <a href="/" id="navbar__logo"
+          ><i class="fa-solid fa-briefcase-medical"></i>MedRad</a
+        >
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <!-- Home button -->
+            <a href="/" class="navbar__links"> Home </a>
+          </li>
+          <!-- tech navbar -->
+          <li class="navbar__item">
+            <a href="/tech.html" class="navbar__links"> Tech </a>
+          </li>
+          <!-- product page navbar -->
+          <li class="navbar__item">
+            <a href="/" class="navbar__links"> Products </a>
+          </li>
+          <!-- Sign up button -->
+          <li class="navbar__btn">
+            <a href="/" class="button"> Sign Up </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section?? -->
+    <div class="main">
+      <div class="main__container">
+        <div class="main__content">
+          <h1>MedRad</h1>
+          <h2>Putting Health First</h2>
+          <p>Start Using it Today!</p>
+          <button class="main__btn">
+            <a href="/tech.html">Get Started</a>
+          </button>
+        </div>
+        <div class="main__img--container">
+          <img src="images/pic3.svg" alt="pic" id="main__img" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="services">
+      <h1>We Got You Covered</h1>
+      <div class="services__container">
+        <div class="services__card">
+          <h2>Make a Tracker Here! ⬆️</h2>
+          <p>Medically Powered Technology</p>
+          <button onclick="window.location.href='/tech.html'">
+            Get Started
+          </button>
+        </div>
+        <div class="services__card">
+          <h2>Need to Check for Symptoms?</h2>
+          <p>Take the leap</p>
+          <button onclick="window.location.href='/tech.html'">
+            Get Started
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer__container">
+      <div class="footer__links">
+        <div class="footer__links--wrapper">
+          <div class="footer__link--items">
+            <h2>About Us</h2>
+            <a href="/">How It Works</a>
+            <a href="/">Testimonials</a>
+            <a href="/">Social Media</a>
+            <a href="/">Contacts</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="apps.js"></script>
+  </body>
+</html>
