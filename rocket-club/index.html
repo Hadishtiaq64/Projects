@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UofG Rocketry Club</title>
+  <meta name="description" content="University of Guelph Rocketry Club" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header glass">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/logo.png" alt="UofG Rocketry Club logo" class="logo" />
+        <span>UofG Rocketry Club</span>
+      </div>
+      <nav class="nav">
+        <button class="nav-toggle" aria-label="Open Menu">☰</button>
+        <ul class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#sponsors">Sponsors</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><button class="btn primary" id="applyBtn">Apply</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero-inner glass">
+        <h1>Reach Higher with Gryphon Rocketry</h1>
+        <p>Designing, building, and launching high-powered rockets at the University of Guelph.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn">Explore Projects</a>
+          <button class="btn primary" id="applyBtnHero">Join the Team</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container glass section-inner">
+        <h2>About Us</h2>
+        <p>
+          We are a student-run organization focused on aerospace engineering, payload research,
+          propulsion, avionics, and flight operations. Our mission is to provide hands-on experience
+          through the full lifecycle of high-power rocketry projects and competitions.
+        </p>
+        <div class="grid two">
+          <div>
+            <h3>What We Do</h3>
+            <ul class="checklist">
+              <li>Design and build composite airframes</li>
+              <li>Develop avionics and flight software</li>
+              <li>Integrate scientific payloads</li>
+              <li>Test propulsion and recovery systems</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Who Can Join</h3>
+            <p>
+              All disciplines are welcome. Whether you love structures, electronics, software,
+              science, or outreach—there is a role for you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sponsors" class="section">
+      <div class="container glass section-inner">
+        <h2>Sponsors</h2>
+        <p>We are grateful to our partners who make our launches possible.</p>
+        <div class="sponsor-grid">
+          <a class="sponsor-card" href="#" aria-label="Sponsor placeholder">
+            <span>Become a Sponsor</span>
+          </a>
+          <a class="sponsor-card" href="#"><span>Your Logo Here</span></a>
+          <a class="sponsor-card" href="#"><span>Your Logo Here</span></a>
+          <a class="sponsor-card" href="#"><span>Your Logo Here</span></a>
+        </div>
+        <div class="cta">
+          <a href="#contact" class="btn">Contact for Sponsorship Package</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container glass section-inner">
+        <h2>Projects</h2>
+        <div class="grid three cards">
+          <article class="card">
+            <h3>High-Power Competition Rocket</h3>
+            <p>Level 2/3 capable vehicle with composite fincan, dual deployment, and custom avionics.</p>
+          </article>
+          <article class="card">
+            <h3>Avionics & Flight Software</h3>
+            <p>Telemetry, guidance experiments, ground station, and simulation tooling.</p>
+          </article>
+          <article class="card">
+            <h3>Payload Research</h3>
+            <p>Microgravity experiments, environmental sensing, and data analysis.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container glass section-inner">
+        <h2>Contact Us</h2>
+        <form id="contactForm" class="contact-form">
+          <div class="grid two">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" placeholder="Your name" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" placeholder="you@uoguelph.ca" required />
+            </label>
+          </div>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn primary">Send</button>
+            <a class="btn" href="mailto:rocketry@guelph.ca">Open Email</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer glass">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> UofG Rocketry Club. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <dialog id="applyModal" class="modal glass">
+    <form method="dialog" class="modal-inner">
+      <header class="modal-header">
+        <h3>Apply to Gryphon Rocketry</h3>
+        <button class="icon-btn" value="close" aria-label="Close">✕</button>
+      </header>
+      <div class="modal-body">
+        <p>We recruit each semester. Tell us your interests and background.</p>
+        <label>
+          <span>Full Name</span>
+          <input type="text" placeholder="First Last" required />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" placeholder="you@uoguelph.ca" required />
+        </label>
+        <label>
+          <span>Area of Interest</span>
+          <select required>
+            <option value="">Select…</option>
+            <option>Structures</option>
+            <option>Avionics</option>
+            <option>Propulsion</option>
+            <option>Payload</option>
+            <option>Operations</option>
+            <option>Outreach</option>
+          </select>
+        </label>
+        <label>
+          <span>Notes</span>
+          <textarea rows="4" placeholder="Briefly describe your experience"></textarea>
+        </label>
+      </div>
+      <footer class="modal-footer">
+        <a class="btn" href="https://forms.gle/" target="_blank" rel="noopener">Open Google Form</a>
+        <button class="btn primary" value="submit">Submit Interest</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
